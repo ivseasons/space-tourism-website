@@ -1,8 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap');
+
 $colors: (
     dark: hsl(230 35% 7%),
     light: hsl(231 77% 90%),
     white: hsl(0 0% 100%)
 );
+
+$font-size: (
+    200: 0.875rem,
+    300: 1rem,
+    400: 1.125rem,
+    500: 1.75rem,
+    600: 2rem,
+    700: 3.5rem,
+    800: 6.25rem,
+    900: 9.375rem
+);
+
+$font-family: (
+    serif: ('Bellefair', serif),
+    sans-cond: ('Barlow Condensed', sans-serif),
+    sans-normal: ('Barlow', sans-serif),
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+};
+
+@function size($font-num) {
+    @return map-get($font-size, $font-num )
+};
+
+@function family($font) {
+    @return map-get($font-family, $font)
+};
+
+
 
 /* HARD RESET */
 
@@ -24,7 +57,21 @@ picture {
     margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
 body {
+    font-family: family(sans-normal);
+    font-size: size(400);
+    background-color: color(dark);
+    color: color(white);
     line-height: 1.5;
     min-height: 100vh;
 }
@@ -40,6 +87,10 @@ button,
 textarea,
 select {
     font: inherit;
+}
+
+ul li {
+    list-style-type: none;
 }
 
 @media (prefers-reduced-motion: reduce) {  
@@ -60,9 +111,14 @@ select {
     gap: var(--gap, 1rem);
 }
 
-.grd {
+.grid {
     display: flex;
     gap: var(--gap, 1rem);
+}
+
+.flow > *:where(:not(:first-child)) {
+    margin-top: 1rem;
+
 }
 
 .container {
@@ -81,4 +137,166 @@ select {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap; /* added line */
     border: 0;
-  }
+}
+
+/* colors */
+
+.bg-dark { background-color: color(dark); }
+.bg-light { background-color: color(light); }
+.bg-white { background-color: color(white); }
+
+.text-dark { color: color(dark); }
+.text-accent { color: color(light); }
+.text-white { color: color(white); }
+
+/* typography */
+
+.ff-serif { font-family: family(serif); }
+.ff-sans-cond { font-family: family(sans-cond); }
+.ff-sans-normal { font-family: family(sans-normal); }
+
+.letter-spacing-1 { letter-spacing: 4.75px; }
+.letter-spacing-2 { letter-spacing: 2.7px; }
+.letter-spacing-3 { letter-spacing: 2.35px; }
+
+.uppercase { text-transform: uppercase; }
+
+.fs-900 { font-size: size(900); line-height: 1.1;}
+.fs-800 { font-size: size(800); line-height: 1.1;}
+.fs-700 { font-size: size(700); line-height: 1.1;}
+.fs-600 { font-size: size(600); line-height: 1.1;}
+.fs-500 { font-size: size(500); }
+.fs-400 { font-size: size(400); }
+.fs-300 { font-size: size(300); }
+.fs-200 { font-size: size(200); }
+
+.numbered-title {
+    font-family: family(sans-cond);
+    font-size: size(500);
+    text-transform: uppercase;
+    letter-spacing: 4.75px;
+
+        span {
+            margin-right: .5em;
+            font-weight: 700;
+            color: hsl(0 0% 100% / .25);
+        }
+}
+
+// Components
+
+.primary-nav {
+    --gap: 8rem;
+    --underlined-gap: 2rem;
+    padding: 0;
+    margin: 0;
+    
+    a {
+        text-decoration: none;
+
+        span {
+            font-weight: 700;
+            margin-right: .5em;
+        }
+    }
+}
+
+.lg-btn {
+    position: relative;
+    z-index: 1;
+    display: inline-grid;
+    place-items: center;
+    padding: 0 2em;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    text-decoration: none;
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        background-color: hsl(0 0% 100% / .1);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 500ms linear, transform 750ms ease-in;
+    }
+
+    &:hover::after,
+    &:focus::after {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+.underline-indicators > * {
+    cursor: pointer;
+    padding:  var(--underline-gap, 1rem) 0;
+    border: 0;
+    border-bottom: .2rem solid hsl(0 0% 100% / 0);
+
+    &:hover,
+    &:focus {
+        border-color: hsl(0 0% 100% / .5);
+    }
+}
+
+.underline-indicators {
+    
+    .active,
+    [aria-selected="true"] {
+        border-color: color(white);
+        color: color(white);
+    }
+}
+
+.tab-list {
+    --underline-gap: 2rem;
+}
+
+.dot-indicators > * {
+    cursor: pointer;
+    border: 0;
+    padding: .5em;
+    border-radius: 50%;
+    background-color: hsl(0 0% 100% / .25);
+
+    &:hover,
+    &:focus {
+        background-color: hsl(0 0% 100% / .5);
+    }
+
+    [aria-selected="true"] {
+        background-color: color(white);
+    }
+}
+
+.number-indicators > * {
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid hsl(0 0% 100% / .5);
+    padding: 1em 1.5em;
+    border-radius: 50%;
+    color: color(white);
+    
+
+    &:hover,
+    &:focus {
+        border: 1px solid color(white);
+    }
+
+    [aria-selected="true"] {
+        background-color: color(white);
+        color: color(dark);
+    }
+}
+
+
+
+
+
+
+
+
+  

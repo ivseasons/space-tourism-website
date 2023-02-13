@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap");
 /* HARD RESET */
 *,
 *::before,
@@ -17,7 +18,21 @@ picture {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
 body {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.125rem;
+  background-color: hsl(230deg, 35%, 7%);
+  color: hsl(0deg, 0%, 100%);
   line-height: 1.5;
   min-height: 100vh;
 }
@@ -33,6 +48,10 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+ul li {
+  list-style-type: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -51,9 +70,13 @@ select {
   gap: var(--gap, 1rem);
 }
 
-.grd {
+.grid {
   display: flex;
   gap: var(--gap, 1rem);
+}
+
+.flow > *:where(:not(:first-child)) {
+  margin-top: 1rem;
 }
 
 .container {
@@ -72,4 +95,196 @@ select {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+/* colors */
+.bg-dark {
+  background-color: hsl(230deg, 35%, 7%);
+}
+
+.bg-light {
+  background-color: hsl(231deg, 77%, 90%);
+}
+
+.bg-white {
+  background-color: hsl(0deg, 0%, 100%);
+}
+
+.text-dark {
+  color: hsl(230deg, 35%, 7%);
+}
+
+.text-accent {
+  color: hsl(231deg, 77%, 90%);
+}
+
+.text-white {
+  color: hsl(0deg, 0%, 100%);
+}
+
+/* typography */
+.ff-serif {
+  font-family: "Bellefair", serif;
+}
+
+.ff-sans-cond {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.ff-sans-normal {
+  font-family: "Barlow", sans-serif;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 4.75px;
+}
+
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+
+.letter-spacing-3 {
+  letter-spacing: 2.35px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fs-900 {
+  font-size: 9.375rem;
+  line-height: 1.1;
+}
+
+.fs-800 {
+  font-size: 6.25rem;
+  line-height: 1.1;
+}
+
+.fs-700 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+.fs-600 {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.fs-500 {
+  font-size: 1.75rem;
+}
+
+.fs-400 {
+  font-size: 1.125rem;
+}
+
+.fs-300 {
+  font-size: 1rem;
+}
+
+.fs-200 {
+  font-size: 0.875rem;
+}
+
+.numbered-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  letter-spacing: 4.75px;
+}
+.numbered-title span {
+  margin-right: 0.5em;
+  font-weight: 700;
+  color: hsla(0deg, 0%, 100%, 0.25);
+}
+
+.primary-nav {
+  --gap: 8rem;
+  --underlined-gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+.primary-nav a {
+  text-decoration: none;
+}
+.primary-nav a span {
+  font-weight: 700;
+  margin-right: 0.5em;
+}
+
+.lg-btn {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 2em;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  text-decoration: none;
+}
+.lg-btn::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: hsla(0deg, 0%, 100%, 0.1);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 500ms linear, transform 750ms ease-in;
+}
+.lg-btn:hover::after, .lg-btn:focus::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.underline-indicators > * {
+  cursor: pointer;
+  padding: var(--underline-gap, 1rem) 0;
+  border: 0;
+  border-bottom: 0.2rem solid hsla(0deg, 0%, 100%, 0);
+}
+.underline-indicators > *:hover, .underline-indicators > *:focus {
+  border-color: hsla(0deg, 0%, 100%, 0.5);
+}
+
+.underline-indicators .active,
+.underline-indicators [aria-selected=true] {
+  border-color: hsl(0deg, 0%, 100%);
+  color: hsl(0deg, 0%, 100%);
+}
+
+.tab-list {
+  --underline-gap: 2rem;
+}
+
+.dot-indicators > * {
+  cursor: pointer;
+  border: 0;
+  padding: 0.5em;
+  border-radius: 50%;
+  background-color: hsla(0deg, 0%, 100%, 0.25);
+}
+.dot-indicators > *:hover, .dot-indicators > *:focus {
+  background-color: hsla(0deg, 0%, 100%, 0.5);
+}
+.dot-indicators > * [aria-selected=true] {
+  background-color: hsl(0deg, 0%, 100%);
+}
+
+.number-indicators > * {
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid hsla(0deg, 0%, 100%, 0.5);
+  padding: 1em 1.5em;
+  border-radius: 50%;
+  color: hsl(0deg, 0%, 100%);
+}
+.number-indicators > *:hover, .number-indicators > *:focus {
+  border: 1px solid hsl(0deg, 0%, 100%);
+}
+.number-indicators > * [aria-selected=true] {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(230deg, 35%, 7%);
 }/*# sourceMappingURL=main.css.map */
