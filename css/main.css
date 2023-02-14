@@ -1,4 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap");
+:root {
+  --fs-900: clamp(5rem, 10vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
+  --fs-500: 1.75rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+}
+@media (min-width: 560px) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+@media (min-width: 760px) {
+  :root {
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
+}
+
 /* HARD RESET */
 *,
 *::before,
@@ -30,11 +57,13 @@ p {
 
 body {
   font-family: "Barlow", sans-serif;
-  font-size: 1.125rem;
+  font-size: size(400);
   background-color: hsl(230deg, 35%, 7%);
   color: hsl(0deg, 0%, 100%);
   line-height: 1.5;
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 img,
@@ -73,6 +102,23 @@ ul li {
 .grid {
   display: flex;
   gap: var(--gap, 1rem);
+}
+
+.grid-container {
+  display: grid;
+}
+@media (min-width: 760px) {
+  .grid-container {
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40em)) minmax(2rem, 1fr);
+    -moz-column-gap: var(--container-gap, 2rem);
+         column-gap: var(--container-gap, 2rem);
+  }
+  .grid-container *:first-child {
+    grid-column: 2;
+  }
+  .grid-container *:last-child {
+    grid-column: 3;
+  }
 }
 
 .flow > *:where(:not(:first-child)) {
@@ -152,44 +198,44 @@ ul li {
 }
 
 .fs-900 {
-  font-size: 9.375rem;
+  font-size: var(--fs-900);
   line-height: 1.1;
 }
 
 .fs-800 {
-  font-size: 6.25rem;
+  font-size: var(--fs-800);
   line-height: 1.1;
 }
 
 .fs-700 {
-  font-size: 3.5rem;
+  font-size: var(--fs-700);
   line-height: 1.1;
 }
 
 .fs-600 {
-  font-size: 2rem;
+  font-size: var(--fs-600);
   line-height: 1.1;
 }
 
 .fs-500 {
-  font-size: 1.75rem;
+  font-size: var(--fs-500);
 }
 
 .fs-400 {
-  font-size: 1.125rem;
+  font-size: var(--fs-400);
 }
 
 .fs-300 {
-  font-size: 1rem;
+  font-size: var(--fs-300);
 }
 
 .fs-200 {
-  font-size: 0.875rem;
+  font-size: var(--fs-200);
 }
 
 .numbered-title {
   font-family: "Barlow Condensed", sans-serif;
-  font-size: 1.75rem;
+  font-size: size(500);
   text-transform: uppercase;
   letter-spacing: 4.75px;
 }

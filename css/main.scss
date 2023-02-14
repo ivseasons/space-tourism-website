@@ -5,18 +5,6 @@ $colors: (
     light: hsl(231 77% 90%),
     white: hsl(0 0% 100%)
 );
-
-$font-size: (
-    200: 0.875rem,
-    300: 1rem,
-    400: 1.125rem,
-    500: 1.75rem,
-    600: 2rem,
-    700: 3.5rem,
-    800: 6.25rem,
-    900: 9.375rem
-);
-
 $font-family: (
     serif: ('Bellefair', serif),
     sans-cond: ('Barlow Condensed', sans-serif),
@@ -27,13 +15,41 @@ $font-family: (
     @return map-get($colors, $color-name)
 };
 
-@function size($font-num) {
-    @return map-get($font-size, $font-num )
-};
-
 @function family($font) {
     @return map-get($font-family, $font)
 };
+
+:root {
+
+    // font sizes
+
+    --fs-900: clamp(5rem, 10vw + 1rem, 9.375rem);
+    --fs-800: 3.5rem;
+    --fs-700: 1.5rem;
+    --fs-600: 1rem;
+    --fs-500: 1.75rem;
+    --fs-400: 0.9375rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+    
+
+    @media (min-width: 560px) {
+
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-400: 1rem;
+    }
+
+    @media (min-width: 760px) {
+        
+        --fs-800: 6.25rem;
+        --fs-700: 3.5rem;
+        --fs-600: 2rem;
+        --fs-400: 1.125rem;
+
+    }
+}
 
 
 
@@ -74,6 +90,9 @@ body {
     color: color(white);
     line-height: 1.5;
     min-height: 100vh;
+
+    display: grid;
+    grid-template-rows: min-content 1fr;
 }
 
 img,
@@ -114,6 +133,28 @@ ul li {
 .grid {
     display: flex;
     gap: var(--gap, 1rem);
+}
+
+.grid-container {
+    display: grid;
+   
+    @media (min-width: 760px) {
+
+        grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40em)) minmax(2rem, 1fr);
+        column-gap: var(--container-gap, 2rem);
+
+        *:first-child {
+            grid-column: 2;
+        }
+        
+        *:last-child {
+            grid-column: 3;
+        }
+    }  
+}
+
+.d-block {
+    display: block;
 }
 
 .flow > *:where(:not(:first-child)) {
@@ -161,14 +202,14 @@ ul li {
 
 .uppercase { text-transform: uppercase; }
 
-.fs-900 { font-size: size(900); line-height: 1.1;}
-.fs-800 { font-size: size(800); line-height: 1.1;}
-.fs-700 { font-size: size(700); line-height: 1.1;}
-.fs-600 { font-size: size(600); line-height: 1.1;}
-.fs-500 { font-size: size(500); }
-.fs-400 { font-size: size(400); }
-.fs-300 { font-size: size(300); }
-.fs-200 { font-size: size(200); }
+.fs-900 { font-size: var(--fs-900); line-height: 1.1;}
+.fs-800 { font-size: var(--fs-800); line-height: 1.1;}
+.fs-700 { font-size: var(--fs-700); line-height: 1.1;}
+.fs-600 { font-size: var(--fs-600); line-height: 1.1;}
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
 
 .numbered-title {
     font-family: family(sans-cond);
