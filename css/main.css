@@ -106,9 +106,16 @@ ul li {
 
 .grid-container {
   display: grid;
+  place-items: center;
+  text-align: center;
+  padding-inline: 1rem;
+}
+.grid-container * {
+  max-width: 50ch;
 }
 @media (min-width: 760px) {
   .grid-container {
+    text-align: left;
     grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40em)) minmax(2rem, 1fr);
     -moz-column-gap: var(--container-gap, 2rem);
          column-gap: var(--container-gap, 2rem);
@@ -119,6 +126,10 @@ ul li {
   .grid-container *:last-child {
     grid-column: 3;
   }
+}
+
+.d-block {
+  display: block;
 }
 
 .flow > *:where(:not(:first-child)) {
@@ -268,6 +279,7 @@ ul li {
   border-radius: 50%;
   aspect-ratio: 1;
   text-decoration: none;
+  font-size: 2rem;
 }
 .lg-btn::after {
   content: "";
@@ -333,4 +345,30 @@ ul li {
 .number-indicators > * [aria-selected=true] {
   background-color: hsl(0deg, 0%, 100%);
   color: hsl(230deg, 35%, 7%);
+}
+
+body {
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.home {
+  background-image: url("/assets/home/background-home-mobile.jpg");
+}
+@media (min-width: 560px) {
+  .home {
+    background-position: center center;
+    background-image: url("/assets/home/background-home-tablet.jpg");
+  }
+}
+@media (min-width: 760px) {
+  .home {
+    background-image: url("/assets/home/background-home-desktop.jpg");
+  }
+}
+@media (min-width: 760px) {
+  .home .grid-container {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
 }/*# sourceMappingURL=main.css.map */

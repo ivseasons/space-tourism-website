@@ -137,9 +137,17 @@ ul li {
 
 .grid-container {
     display: grid;
+    place-items: center;
+    text-align: center;
+    padding-inline: 1rem;
+
+    * {
+        max-width: 50ch;
+    }
    
     @media (min-width: 760px) {
 
+        text-align: left;
         grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40em)) minmax(2rem, 1fr);
         column-gap: var(--container-gap, 2rem);
 
@@ -152,6 +160,7 @@ ul li {
         }
     }  
 }
+
 
 .d-block {
     display: block;
@@ -251,6 +260,7 @@ ul li {
     border-radius: 50%;
     aspect-ratio: 1;
     text-decoration: none;
+    font-size: 2rem;
 
     &::after {
         content: '';
@@ -332,6 +342,37 @@ ul li {
         color: color(dark);
     }
 }
+
+// Page Specifics - BACKGROUND
+
+body {
+    background-position: bottom center;
+    background-size: cover;
+
+}
+
+.home {
+    
+    background-image: url('/assets/home/background-home-mobile.jpg');
+
+    @media (min-width: 560px) {
+        background-position: center center;
+        background-image: url('/assets/home/background-home-tablet.jpg');
+    }
+
+    @media (min-width: 760px) {
+        background-image: url('/assets/home/background-home-desktop.jpg');
+    }
+
+    .grid-container {
+
+        @media(min-width: 760px) {
+            padding-bottom: max(6rem, 20vh);
+            align-items: end;
+        }
+    }
+}
+   
 
 
 
