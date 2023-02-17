@@ -100,7 +100,7 @@ ul li {
 }
 
 .grid {
-  display: flex;
+  display: grid;
   gap: var(--gap, 1rem);
 }
 
@@ -257,10 +257,17 @@ ul li {
 }
 
 .primary-nav {
-  --gap: 8rem;
-  --underlined-gap: 2rem;
+  --gap: .5rem;
+  --underlined-gap: .5rem;
   padding: 0;
   margin: 0;
+  height: 100vh;
+  width: 70%;
+  position: absolute;
+  right: 0;
+  background: hsl(230deg, 35%, 7%);
+  z-index: 2;
+  opacity: 0.5;
 }
 .primary-nav a {
   text-decoration: none;
@@ -268,6 +275,12 @@ ul li {
 .primary-nav a span {
   font-weight: 700;
   margin-right: 0.5em;
+}
+@media (min-width: 560px) {
+  .primary-nav {
+    --gap: 8rem;
+    --underlined-gap: 2rem;
+  }
 }
 
 .lg-btn {

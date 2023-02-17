@@ -131,7 +131,7 @@ ul li {
 }
 
 .grid {
-    display: flex;
+    display: grid;
     gap: var(--gap, 1rem);
 }
 
@@ -236,10 +236,19 @@ ul li {
 // Components
 
 .primary-nav {
-    --gap: 8rem;
-    --underlined-gap: 2rem;
+    --gap: .5rem;
+    --underlined-gap: .5rem;
     padding: 0;
     margin: 0;
+
+    height: 100vh;
+    width: 70%;
+    position: absolute;
+    right: 0;
+    background: color(dark);
+    z-index: 2;
+    opacity: .5;
+    
     
     a {
         text-decoration: none;
@@ -248,6 +257,12 @@ ul li {
             font-weight: 700;
             margin-right: .5em;
         }
+    }
+
+    @media (min-width: 560px) {
+
+        --gap: 8rem;
+        --underlined-gap: 2rem;
     }
 }
 
