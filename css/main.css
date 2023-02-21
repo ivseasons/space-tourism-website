@@ -64,6 +64,7 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-rows: min-content 1fr;
+  overflow-x: hidden;
 }
 
 img,
@@ -100,7 +101,7 @@ ul li {
 }
 
 .grid {
-  display: grid;
+  display: flex;
   gap: var(--gap, 1rem);
 }
 
@@ -256,18 +257,23 @@ ul li {
   color: hsla(0deg, 0%, 100%, 0.25);
 }
 
+.logo {
+  margin: 1.5rem clamp(1rem, 5vw, 3.5rem);
+}
+
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+}
+
 .primary-nav {
-  --gap: .5rem;
-  --underlined-gap: .5rem;
+  --gap: 4rem;
+  --underlined-gap: 2rem;
   padding: 0;
   margin: 0;
-  height: 100vh;
-  width: 70%;
-  position: absolute;
-  right: 0;
-  background: hsl(230deg, 35%, 7%);
-  z-index: 2;
-  opacity: 0.5;
+  background: hsla(0deg, 0%, 100%, 0.1);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
 }
 .primary-nav a {
   text-decoration: none;
@@ -276,11 +282,58 @@ ul li {
   font-weight: 700;
   margin-right: 0.5em;
 }
-@media (min-width: 560px) {
+@media (min-width: 560px) and (max-width: 760px) {
   .primary-nav {
-    --gap: 8rem;
-    --underlined-gap: 2rem;
+    --gap: 1.5rem;
+    padding-inline: 2.5rem;
   }
+  .primary-nav a span {
+    display: none;
+  }
+}
+@media (max-width: 560px) {
+  .primary-nav {
+    --gap: 1rem;
+    --underlined-gap: .5rem;
+    padding: min(20rem, 15vh) 2rem;
+    flex-direction: column;
+    position: fixed;
+    inset: 0 0 0 30%;
+    z-index: 2;
+    transform: translateX(100%);
+    transition: all 1s;
+  }
+  .primary-nav.underline-indicators > .active {
+    border: 0;
+  }
+}
+
+.nav-transform {
+  transform: translateX(0);
+}
+
+.mobile-navigation-toggle {
+  display: none;
+}
+@media (max-width: 560px) {
+  .mobile-navigation-toggle {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    top: 2.5rem;
+    right: 1.5rem;
+    background: transparent;
+    background-image: url("/assets/shared/icon-hamburger.svg");
+    background-repeat: no-repeat;
+    border: 0;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    cursor: pointer;
+  }
+}
+
+.change-background {
+  background-image: url("/assets/shared/icon-close.svg");
 }
 
 .lg-btn {
@@ -318,6 +371,11 @@ ul li {
 }
 .underline-indicators > *:hover, .underline-indicators > *:focus {
   border-color: hsla(0deg, 0%, 100%, 0.5);
+}
+@media (min-width: 560px) and (max-width: 760px) {
+  .underline-indicators > * {
+    padding: 2rem 0;
+  }
 }
 
 .underline-indicators .active,

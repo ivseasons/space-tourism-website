@@ -12,15 +12,15 @@
     </head>
 
     <body>
-        <head>
+        <header>
 
             <div class="navbar flex">
                 <div>
-                    <img src="./assets/shared/logo.svg" alt="Logo">
+                    <img src="./assets/shared/logo.svg" class="logo" alt="Logo">
                 </div>
                 
-                <button class="mobile-navigation-toggle" aria-controls="primary-navigation">
-                    <span class="sr-only" aria-expanded="false">Menu</span><img src="./assets/shared/icon-hamburger.svg">
+                <button class="mobile-navigation-toggle" aria-controls="primary-navigation" id="open-btn" data-visible="false">
+                    <span class="sr-only" id="aria" aria-expanded="false">Menu</span>
                 </button>
                 <nav>
                     <ul id="primary-navigation" class="grid primary-nav underline-indicators">
@@ -40,7 +40,7 @@
                 </nav>
     
             </div>
-        </head>
+        </header>
 
         <body class="home">
 

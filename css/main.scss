@@ -93,6 +93,8 @@ body {
 
     display: grid;
     grid-template-rows: min-content 1fr;
+
+    overflow-x: hidden;
 }
 
 img,
@@ -131,7 +133,7 @@ ul li {
 }
 
 .grid {
-    display: grid;
+    display: flex;
     gap: var(--gap, 1rem);
 }
 
@@ -235,20 +237,24 @@ ul li {
 
 // Components
 
+// Primary Header
+
+.logo {
+    margin: 1.5rem clamp(1rem, 5vw, 3.5rem);
+}
+
+.navbar {
+    justify-content: space-between;
+    align-items: center;
+}
+
 .primary-nav {
-    --gap: .5rem;
-    --underlined-gap: .5rem;
+    --gap: 4rem;
+    --underlined-gap: 2rem;
     padding: 0;
     margin: 0;
-
-    height: 100vh;
-    width: 70%;
-    position: absolute;
-    right: 0;
-    background: color(dark);
-    z-index: 2;
-    opacity: .5;
-    
+    background: hsl(0 0% 100% / .1);
+    backdrop-filter: blur(20px);
     
     a {
         text-decoration: none;
@@ -259,11 +265,60 @@ ul li {
         }
     }
 
-    @media (min-width: 560px) {
+    @media (min-width: 560px) and (max-width: 760px) {
+        --gap: 1.5rem;
+        padding-inline: 2.5rem;
 
-        --gap: 8rem;
-        --underlined-gap: 2rem;
+        a span {
+            display: none;
+        }
+
     }
+
+    @media (max-width: 560px) {
+        --gap: 1rem;
+        --underlined-gap: .5rem;
+        padding: min(20rem, 15vh) 2rem;
+        flex-direction: column;
+    
+        position: fixed;
+        inset: 0 0 0 30%;
+        z-index: 2;
+        transform: translateX(100%);
+        transition: all 1s;
+
+        &.underline-indicators > .active {
+            border: 0;
+        }
+    }
+}
+
+.nav-transform {
+    transform: translateX(0);
+}
+
+.mobile-navigation-toggle {
+    display: none;
+
+    @media (max-width: 560px) {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        top: 2.5rem;
+        right: 1.5rem;
+        background: transparent;
+        background-image: url('/assets/shared/icon-hamburger.svg');
+        background-repeat: no-repeat; 
+        border: 0;
+        width: 1.5rem;
+        aspect-ratio: 1;
+        cursor: pointer;   
+    }
+}
+
+
+.change-background {
+    background-image: url('/assets/shared/icon-close.svg');
 }
 
 .lg-btn {
@@ -305,6 +360,10 @@ ul li {
     &:hover,
     &:focus {
         border-color: hsl(0 0% 100% / .5);
+    }
+
+    @media (min-width: 560px) and (max-width: 760px) {
+        padding: 2rem 0;
     }
 }
 
