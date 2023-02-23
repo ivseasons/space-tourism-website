@@ -8,12 +8,96 @@
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/destination/image-moon.png">
         <link rel="stylesheet" href="./css/main.css">
 
-        <title>Space Website</title>
+        <title>Destination</title>
     </head>
 
-    <body>
+    <body class="destination">
 
-        <h1>Space Website</h1>
+        <a class="skip-cta" href="#main">Skip to Content</a>
+
+        <header>
+
+            <div class="navbar flex">
+                <div>
+                    <img src="./assets/shared/logo.svg" class="logo" alt="Logo">
+                </div>
+                
+                <button class="mobile-navigation-toggle" aria-controls="primary-navigation" id="open-btn" data-visible="false">
+                    <span class="sr-only" id="aria" aria-expanded="false">Menu</span>
+                </button>
+                <nav>
+                    <ul id="primary-navigation" class="grid primary-nav underline-indicators">
+                        <li>
+                            <a class="uppercase ff-sans-cond letter-spacing-2 text-white" href="index.html"><span aria-hidden="true">00</span>Home</a>
+                        </li>
+                        <li class="active">
+                            <a class="uppercase ff-sans-cond letter-spacing-2 text-white" href="destination.html"><span aria-hidden="true">01</span>Destination</a>
+                        </li>
+                        <li>
+                            <a class="uppercase ff-sans-cond letter-spacing-2 text-white" href="crew.html"><span aria-hidden="true">02</span>Crew</a>
+                        </li>
+                        <li>
+                            <a class="uppercase ff-sans-cond letter-spacing-2 text-white" href="technology.html"><span aria-hidden="true">03</span>Technology</a>
+                        </li>
+                    </ul>
+                </nav>
+    
+            </div>
+        </header>
+
+        <main id="main">
+
+            <h2 class="numbered-title"><span>02</span>Pick your destination</h2>
+
+            <section class="grid-container">
+                <div class="left">
+                    <picture class="planet-img" alt="Moon">
+                        <source media="(min-width: 760px)" srcset="./assets/destination/image-moon.png">
+                        <img src="./assets/destination/image-moon.webp">
+                    </picture>
+                </div>
+
+                <div class="right">
+                    <div class="tab-list underline-indicators flex">
+                        <button aria-selected="true" class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3">
+                            Moon
+                        </button>
+                        <button aria-selected="false" class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3">
+                            Mars
+                        </button>
+                        <button aria-selected="false" class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3">
+                            Europa
+                        </button>
+                        <button aria-selected="false" class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3">
+                            Titan
+                        </button>
+                    </div>
+
+                    <h1 class="uppercase ff-serif fs-900 text-white">Moon</h1>
+
+                    <p class="text-accent">
+                        See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.
+                    </p>
+
+                    <hr>
+
+                    <div class="destination-flex">
+                        <div class="uppercase">
+                            <h3 class="ff-sans-cond text-accent letter-spacing-3 fs-300">Avg. distance</h3>
+                            <h4 class="ff-serif fs-500">384,400 km</h4>
+                        </div>
+                        <div class="uppercase">
+                            <h3 class="ff-sans-cond text-accent letter-spacing-3 fs-300">Est. travel time</h3>
+                            <h4 class="ff-serif fs-500">3 days</h4>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+        
 
         <script src="index.js"></script>
     </body>
