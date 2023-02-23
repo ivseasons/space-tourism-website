@@ -120,6 +120,8 @@ ul li {
     grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40em)) minmax(2rem, 1fr);
     -moz-column-gap: var(--container-gap, 2rem);
          column-gap: var(--container-gap, 2rem);
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
   }
   .grid-container *:first-child {
     grid-column: 2;
@@ -458,11 +460,5 @@ body {
 @media (min-width: 760px) {
   .home {
     background-image: url("/assets/home/background-home-desktop.jpg");
-  }
-}
-@media (min-width: 760px) {
-  .home .grid-container {
-    padding-bottom: max(6rem, 20vh);
-    align-items: end;
   }
 }/*# sourceMappingURL=main.css.map */

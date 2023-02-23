@@ -152,6 +152,8 @@ ul li {
         text-align: left;
         grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40em)) minmax(2rem, 1fr);
         column-gap: var(--container-gap, 2rem);
+        padding-bottom: max(6rem, 20vh);
+        align-items: end;
 
         *:first-child {
             grid-column: 2;
@@ -461,14 +463,16 @@ body {
         background-image: url('/assets/home/background-home-desktop.jpg');
     }
 
-    .grid-container {
+    // .grid-container {
 
-        @media(min-width: 760px) {
-            padding-bottom: max(6rem, 20vh);
-            align-items: end;
-        }
-    }
+    //     @media (min-width: 760px) {
+    //         padding-bottom: max(6rem, 20vh);
+    //         align-items: end;
+    //     }
+    // }
 }
+
+
    
 
 
