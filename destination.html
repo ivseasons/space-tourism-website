@@ -47,17 +47,18 @@
 
         <main id="main">
 
-            <h2 class="numbered-title"><span>01</span>Pick your destination</h2>
-
-            <section class="grid-container">
+            <section class="grid-container flow">
+                <div class="title">
+                    <h1 class="numbered-title"><span aria-hidden="true">01</span>Pick your destination</h1>
+                </div>
                 <div class="left">
                     <picture class="planet-img" alt="Moon">
-                        <source media="(min-width: 760px)" srcset="./assets/destination/image-moon.png">
-                        <img src="./assets/destination/image-moon.webp">
+                        <source srcset="./assets/destination/image-moon.webp" type="image/webp">
+                        <img src="./assets/destination/image-moon.png">
                     </picture>
                 </div>
 
-                <div class="right">
+                <div class="right flow">
                     <div class="tab-list underline-indicators flex">
                         <button aria-selected="true" class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3">
                             Moon
@@ -73,22 +74,22 @@
                         </button>
                     </div>
 
-                    <h1 class="uppercase ff-serif fs-900 text-white">Moon</h1>
+                    <div class="flow small">
+                        <h2 class="uppercase ff-serif fs-800">Moon</h2>
 
-                    <p class="text-accent">
-                        See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.
-                    </p>
+                        <p class="text-accent">
+                            See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.
+                        </p>
+                    </div>
 
-                    <hr>
-
-                    <div class="destination-flex">
-                        <div class="uppercase">
-                            <h3 class="ff-sans-cond text-accent letter-spacing-3 fs-300">Avg. distance</h3>
-                            <h4 class="ff-serif fs-500">384,400 km</h4>
+                    <div class="destination-flex uppercase">
+                        <div>
+                            <h3 class="ff-sans-cond text-accent letter-spacing-3 fs-200">Avg. distance</h3>
+                            <p class="ff-serif">384,400 km</p>
                         </div>
-                        <div class="uppercase">
-                            <h3 class="ff-sans-cond text-accent letter-spacing-3 fs-300">Est. travel time</h3>
-                            <h4 class="ff-serif fs-500">3 days</h4>
+                        <div>
+                            <h3 class="ff-sans-cond text-accent letter-spacing-3 fs-200">Est. travel time</h3>
+                            <p class="ff-serif">3 days</p>
                         </div>
                     </div>
 

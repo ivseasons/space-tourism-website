@@ -26,8 +26,8 @@ $font-family: (
     --fs-900: clamp(5rem, 10vw + 1rem, 9.375rem);
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
-    --fs-600: 3rem;
-    --fs-500: 1.75rem;
+    --fs-600: 1rem;
+    --fs-500: 1rem;
     --fs-400: 0.9375rem;
     --fs-300: 1rem;
     --fs-200: 0.875rem;
@@ -37,6 +37,7 @@ $font-family: (
 
         --fs-800: 5rem;
         --fs-700: 2.5rem;
+        --fs-500: 1.25rem;
         --fs-600: 1.5rem;
         --fs-400: 1rem;
     }
@@ -46,6 +47,7 @@ $font-family: (
         --fs-800: 6.25rem;
         --fs-700: 3.5rem;
         --fs-600: 2rem;
+        --fs-500: 1.75rem;
         --fs-400: 1.125rem;
 
     }
@@ -143,8 +145,12 @@ ul li {
     text-align: center;
     padding-inline: 1rem;
 
-    * {
+    p {
         max-width: 50ch;
+    }
+
+    @media (min-width: 560px) {
+        padding-inline: 2rem;
     }
    
     @media (min-width: 760px) {
@@ -172,9 +178,13 @@ ul li {
 }
 
 .flow > *:where(:not(:first-child)) {
-    margin-top: 1rem;
+    margin-top: var(--flow-space, 1rem);
 
+    .small {
+        --flow-space: .5rem;
+    }
 }
+
 
 .container {
     padding-inline: 2em;
@@ -421,7 +431,7 @@ nav {
 }
 
 .tab-list {
-    --underline-gap: 2rem;
+    --underline-gap: .5rem;
     margin-inline: auto;
 }
 
@@ -535,11 +545,6 @@ body {
     }
 }
 
-hr {
-    border: .5px solid hsl(0 0% 100% / .25);
-    margin: 3rem 0;
-}
-
 .tab-list.flex {
     justify-content: center;
 
@@ -549,99 +554,125 @@ hr {
 }
 
 .destination-flex {
-    display: grid;
-    place-content: center;
-    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid hsl(0 0% 100% / .25);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    gap: 1rem;
 
-    > * {
-        margin-bottom: 2rem;
+    p {
+        font-size: 1.75rem;
     }
 
     @media (min-width: 560px) {
-        display: flex;
         justify-content: space-evenly;
+        flex-direction: row;
     }
 
     @media (min-width: 760px) {
         justify-content: left;
-
-        > * {
-            margin-right: 4rem;
-        }
+        gap: min(5vw, 6rem);
     }
  }
 
 .destination {
-
-    .right > * {
-        margin-bottom: 2rem;
+    .flow {
+        --flow-space: 2rem;
     }
-
-
-    @media (min-width: 760px) {
-
-        .grid-container .left {
-            align-self: center;
-        }
-    }
- }
-
- h2 {
-    text-align: center;
-    margin: 2rem 0;
 
     @media (min-width: 560px) {
-        text-align: left;
-        padding-left: clamp(1.5rem, 3vw + 1rem, 10rem)
-    }  
-}
+        .title {
+            justify-self: left;
+            margin-top: 2rem;
+        }
+    }
+
+    @media (min-width: 760px) {
+        .grid-container {
+            grid-template-areas: 
+                '. title title .'
+                '. image content .';
+            
+            align-content: start;
+
+            .title {
+                grid-area: title;
+            }
+
+            .left {
+                grid-area: image;
+                align-self: center;
+            }
+
+            .right {
+                grid-area: content;
+                justify-self: start;
+
+            }
+        }
+       
+    }
+ }
 
  // Crew Page
 
- .dot-indicators.flex {
-    justify-content: center;
-
-    @media (min-width: 760px) {
-        justify-content: start;
-    }
- }
-
  .crew .grid-container {
-    display: grid;
     grid-template-areas: 
+        'title'
         'image'
+        'dots'
         'content';
-    place-content: center;
 
-    .right {
-        grid-area: image;
-
-        hr {
-            margin-top: 0;
-        }
+    .title {
+        grid-area: title;
     }
 
-    .left {
+    .image {
+        grid-area: image;
+    }
+
+    .dot-indicators {
+        grid-area: dots;
+        justify-content: center;
+    }
+
+    .content {
         grid-area: content;
     }
 
     @media (min-width: 560px) {
         grid-template-areas: 
+            'title'    
             'content'
+            'dots'
             'image';
+        padding-bottom: 0;
 
-        .right hr {
-            display: none;
+        .title {
+            justify-self: start;
+            margin-top: 2rem;
         }
     }
 
     @media (min-width: 760px) {
         grid-template-areas:
-            'content image';
-        grid-template-columns: auto auto;  
-        
-        .left {
+            '. title title .'
+            '. content image .'
+            '. dots image .';
+        justify-items: start;
+
+        .content {
+            align-self: end;
+        }
+
+        .dot-indicators {
             align-self: center;
+        }
+
+        .image {
+            align-self: end;
         }
     }
  }
@@ -649,49 +680,21 @@ hr {
  .crew-img img {
     width: 60%;
     margin-inline: auto;
+    border-bottom: 1px solid hsl(0 0% 100% / .25);
 
     @media (min-width: 560px) {
-        width: 100%;
+        width: 90%;
+    }
+
+    @media (min-width: 760px) {
+        height: 60%;
     }
  }
 
- .crew .left {
-
-    display: grid;
-    grid-template-areas: 
-        'dot'
-        'h3'
-        'h1'
-        'p';
-    grid-gap: .5rem;
-
-    h3 {
-        grid-area: h3;
-        color: hsl(0 0% 100% / .5);
-        margin-top: 1rem;
-    }
-
-    h1 {
-        grid-area: h1;
-    }
-
-    p {
-        grid-area: p;
-        margin: 1rem 0;
-    }
-
-    .dot-indicators {
-        grid-area: dot;
-    }
-
-    @media (min-width: 560px) {
-        grid-template-areas: 
-            'h3'
-            'h1'
-            'p'
-            'dot';
-    }
- }
+ .crew h2 {
+    color: hsl(0 0% 100% / .5);
+ }  
+   
 
  // Technology Page
 
@@ -702,21 +705,24 @@ hr {
 
  .technology .grid-container {
 
-    > * {
-        margin-bottom: 2rem;
-    }
-
-    .center p {
-
-        margin: 1rem 0;
+    @media (min-width: 560px) {
+        .title {
+            justify-self: start;
+            margin-top: 2rem;
+        }
     }
 
     @media (min-width: 760px) {
         grid-template-areas: 
-            'num content img';
+            '. title title .'
+            '. num content img';
         grid-template-columns: 10% auto auto;
         height: 90vh;
         align-items: center;
+
+        .title {
+            grid-area: title;
+        }
 
         .right {
             grid-area: img;
@@ -726,6 +732,7 @@ hr {
             grid-area: num;
             flex-direction: column;
             gap: 2rem;
+            justify-self: start;
         }
 
         .center {
