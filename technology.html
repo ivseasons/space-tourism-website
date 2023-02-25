@@ -8,12 +8,75 @@
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/destination/image-moon.png">
         <link rel="stylesheet" href="./css/main.css">
 
-        <title>Space Website</title>
+        <title>Technology</title>
     </head>
 
-    <body>
+    <body class="technology">
 
-        <h1>Space Website</h1>
+        <a class="skip-cta" href="#main">Skip to Content</a>
+
+        <header>
+
+            <div class="navbar flex">
+                <div>
+                    <img src="./assets/shared/logo.svg" class="logo" alt="Logo">
+                </div>
+                
+                <button class="mobile-navigation-toggle" aria-controls="primary-navigation" id="open-btn" data-visible="false">
+                    <span class="sr-only" id="aria" aria-expanded="false">Menu</span>
+                </button>
+                <nav>
+                    <ul id="primary-navigation" class="grid primary-nav underline-indicators">
+                        <li>
+                            <a class="uppercase ff-sans-cond letter-spacing-2 text-white" href="index.html"><span aria-hidden="true">00</span>Home</a>
+                        </li>
+                        <li>
+                            <a class="uppercase ff-sans-cond letter-spacing-2 text-white" href="destination.html"><span aria-hidden="true">01</span>Destination</a>
+                        </li>
+                        <li>
+                            <a class="uppercase ff-sans-cond letter-spacing-2 text-white" href="crew.html"><span aria-hidden="true">02</span>Crew</a>
+                        </li>
+                        <li class="active">
+                            <a class="uppercase ff-sans-cond letter-spacing-2 text-white" href="technology.html"><span aria-hidden="true">03</span>Technology</a>
+                        </li>
+                    </ul>
+                </nav>
+    
+            </div>
+        </header>
+
+        <main id="main">
+
+            <h2 class="numbered-title"><span>03</span>Space launch 101</h2>
+
+            <section class="grid-container">
+
+                <div class="right">
+                    <picture class="tech-img" alt="Spaceship launching">
+                        <source media="(min-width: 760px)" srcset="./assets/technology/image-launch-vehicle-portrait.jpg">
+                        <img src="./assets/technology/image-launch-vehicle-landscape.jpg">
+                    </picture>
+                </div>
+
+                <div class="left number-indicators flex">
+                    <button aria-selected="true" class="">1</button>
+                    <button aria-selected="false" class="">2</button>
+                    <button aria-selected="false" class="">3</button>
+                </div>
+
+                <div class="center">
+                    <h3 class="uppercase text-accent ff-sans-cond letter-spacing-3">The terminology...</h3>
+                    
+                    <h1 class="uppercase ff-serif fs-700">Launch vehicle</h1>
+
+                    <p class="text-accent">
+                        A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch
+                    </p>
+                </div>
+
+            </section>
+
+        </main>
 
         <script src="index.js"></script>
     </body>
