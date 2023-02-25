@@ -156,7 +156,7 @@ ul li {
     @media (min-width: 760px) {
 
         text-align: left;
-        grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40em)) minmax(2rem, 1fr);
+        grid-template-columns: minmax(4rem, 1fr) repeat(2, minmax(0, 40em)) minmax(4rem, 1fr);
         column-gap: var(--container-gap, 2rem);
         padding-bottom: max(6rem, 20vh);
         align-items: end;
@@ -178,11 +178,12 @@ ul li {
 }
 
 .flow > *:where(:not(:first-child)) {
-    margin-top: var(--flow-space, 1rem);
+    margin-top: var(--flow-space, 1.75rem);
 
-    .small {
-        --flow-space: .5rem;
-    }
+}
+
+.flow.small > *:where(:not(:first-child)) {
+    --flow-space: .5rem;
 }
 
 
@@ -471,6 +472,10 @@ nav {
         background-color: color(white);
         color: color(dark);
     }
+
+    @media (min-width: 760px) {
+        font-size: 1.25rem;
+    }
 }
 
 // Page Specifics - BACKGROUND
@@ -534,6 +539,14 @@ body {
     }
 }
 
+// Home Page
+
+.home .grid-container .right {
+
+    align-self: end;
+
+}
+
 // Destination Page
 
 .planet-img img {
@@ -578,9 +591,6 @@ body {
  }
 
 .destination {
-    .flow {
-        --flow-space: 2rem;
-    }
 
     @media (min-width: 560px) {
         .title {
@@ -594,7 +604,6 @@ body {
             grid-template-areas: 
                 '. title title .'
                 '. image content .';
-            
             align-content: start;
 
             .title {
@@ -687,7 +696,7 @@ body {
     }
 
     @media (min-width: 760px) {
-        height: 60%;
+        width: 80%;
     }
  }
 
@@ -698,17 +707,27 @@ body {
 
  // Technology Page
 
+.tech-img img {
+    max-width: 100%;
 
- .tech-img img {
-    width: 100%;
+    @media (min-width: 760px) {
+        height: 100%;
+    }
  }
 
- .technology .grid-container {
+.technology .grid-container {
+
+    padding-inline: 0;
+
+    .center {
+        padding-inline: 1rem;
+    }
 
     @media (min-width: 560px) {
         .title {
             justify-self: start;
             margin-top: 2rem;
+            padding-left: 2rem;
         }
     }
 
@@ -716,16 +735,19 @@ body {
         grid-template-areas: 
             '. title title .'
             '. num content img';
-        grid-template-columns: 10% auto auto;
-        height: 90vh;
+        grid-template-columns: minmax(6rem, 1fr) minmax(2rem, 1fr) repeat(2, minmax(0, 40em));
         align-items: center;
+        padding-right: 0;
 
         .title {
             grid-area: title;
+            padding-left: 0;
         }
 
         .right {
             grid-area: img;
+            justify-self: end;
+            align-self: center;
         }
 
         .left {
@@ -739,7 +761,7 @@ body {
             grid-area: content;
         }
     }
- }
+}
 
 
 
