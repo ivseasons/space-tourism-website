@@ -51,25 +51,26 @@
                 <div class="title">
                     <h1 class="numbered-title"><span aria-hidden="true">01</span>Pick your destination</h1>
                 </div>
-                <div class="left">
+
+                <div id="moon-image" class="left" role="tabimage">
                     <picture class="planet-img" alt="Moon">
                         <source srcset="./assets/destination/image-moon.webp" type="image/webp">
                         <img src="./assets/destination/image-moon.png">
                     </picture>
                 </div>
-                <div hidden class="left">
+                <div hidden id="mars-image" class="left" role="tabimage">
                     <picture class="planet-img" alt="Planet Mars">
                         <source srcset="./assets/destination/image-mars.webp" type="image/webp">
                         <img src="./assets/destination/image-mars.png">
                     </picture>
                 </div>
-                <div hidden class="left">
+                <div hidden id="europa-image" class="left" role="tabimage">
                     <picture class="planet-img" alt="Planet Europa">
                         <source srcset="./assets/destination/image-europa.webp" type="image/webp">
                         <img src="./assets/destination/image-europa.png">
                     </picture>
                 </div>
-                <div hidden class="left">
+                <div hidden id="titan-image" class="left" role="tabimage">
                     <picture class="planet-img" alt="Moon Titan">
                         <source srcset="./assets/destination/image-titan.webp" type="image/webp">
                         <img src="./assets/destination/image-titan.png">
@@ -78,16 +79,16 @@
 
                 
                 <div class="tab-list underline-indicators flex" role="tablist" aria-label="destination list">
-                    <button aria-selected="true" role="tab" aria-controls="moon-tab"  class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3" tabindex="0">
+                    <button aria-selected="true" role="tab" aria-controls="moon-tab" data-image="moon-image" class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3" tabindex="0">
                         Moon
                     </button>
-                    <button aria-selected="false" role="tab" aria-controls="mars-tab"  class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3" tabindex="-1">
+                    <button aria-selected="false" role="tab" aria-controls="mars-tab" data-image="mars-image" class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3" tabindex="-1">
                         Mars
                     </button>
-                    <button aria-selected="false" role="tab" aria-controls="europa-tab"  class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3" tabindex="-1">
+                    <button aria-selected="false" role="tab" aria-controls="europa-tab" data-image="europa-image" class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3" tabindex="-1">
                         Europa
                     </button>
-                    <button aria-selected="false" role="tab" aria-controls="titan-tab"  class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3" tabindex="-1">
+                    <button aria-selected="false" role="tab" aria-controls="titan-tab" data-image="titan-image" class="uppercase bg-transparent text-accent ff-sans-cond letter-spacing-3" tabindex="-1">
                         Titan
                     </button>
                 </div>

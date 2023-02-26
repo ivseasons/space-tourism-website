@@ -37,35 +37,54 @@ function changeTabFocus(event) {
 
     if(event.keyCode === keyRight || event.keyCode === keyLeft) {
         tabs[tabFocus].setAttribute('tabindex', -1)
-    }
-    if(event.keyCode === keyRight) {
-        tabFocus++;
-        if(tabFocus >= tabs.length) {
-            tabFocus = 0;
-        }
-    }
-    if(event.keyCode === keyLeft) {
-        tabFocus--;
-        if(tabFocus < 0) {
-            tabFocus = tab.length - 1;
-        }
-    }
 
-    tabs[tabFocus].setAttribute('tabindex', 0);
-    tabs[tabFocus].focus();
+        if(event.keyCode === keyRight) {
+            tabFocus++;
+            if(tabFocus >= tabs.length) {
+                tabFocus = 0;
+            }
+        } else {
+            tabFocus--;
+            if(tabFocus < 0) {
+                tabFocus = tabs.length - 1;
+            }
+        }
+    
+        tabs[tabFocus].setAttribute('tabindex', 0);
+        tabs[tabFocus].focus();
+    }
+    
 }
 
 function changeTabContent(event) {
     const targetTab = event.target;
     const targetContent = targetTab.getAttribute('aria-controls');
+    const targetImage = targetTab.getAttribute('data-image');
 
     const tabContainer = targetTab.parentNode;
-    const mainContainer = tabContainer.parentNode
+    const mainContainer = tabContainer.parentNode;
 
-    mainContainer
-        .querySelectorAll('[role="tabcontent"]')
-        .forEach((content) => content.setAttribute("hidden", true));
+    tabContainer
+        .querySelector('[aria-selected="true"]')
+        .setAttribute('aria-selected', false);
 
+    targetTab.setAttribute('aria-selected', true);
 
-    mainContainer.querySelector(`#${targetContent}`).removeAttribute('hidden')
+    hideContent(mainContainer, '[role="tabcontent"')
+    showContent(mainContainer, targetContent)
+    
+    hideContent(mainContainer, '[role="tabimage"')
+    showContent(mainContainer, targetImage)
+}
+
+function hideContent(parent, content) {
+    parent
+        .querySelectorAll(content)
+        .forEach((item) => item.setAttribute("hidden", true));
+}
+
+function showContent(parent, target) {
+    parent
+        .querySelector([`#${target}`])
+        .removeAttribute('hidden');
 }

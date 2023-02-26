@@ -721,8 +721,4 @@ body {
   .technology .grid-container .center {
     grid-area: content;
   }
-}
-
-[role=tab]:focus {
-  color: white;
 }/*# sourceMappingURL=main.css.map */
