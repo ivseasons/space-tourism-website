@@ -558,13 +558,6 @@ body {
     }
 }
 
-.tab-list.flex {
-    justify-content: center;
-
-    @media (min-width: 760px) {
-        justify-content: left;
-    }
-}
 
 .destination-flex {
     display: flex;
@@ -591,7 +584,6 @@ body {
  }
 
 .destination {
-
     @media (min-width: 560px) {
         .title {
             justify-self: left;
@@ -603,16 +595,24 @@ body {
         .grid-container {
             grid-template-areas: 
                 '. title title .'
+                '. image tabs .'
                 '. image content .';
             align-content: start;
 
             .title {
                 grid-area: title;
+                
             }
 
             .left {
                 grid-area: image;
                 align-self: center;
+            }
+
+            .tab-list {
+                grid-area: tabs;
+                justify-self: left;
+                margin-inline: 0;
             }
 
             .right {
@@ -761,6 +761,10 @@ body {
             grid-area: content;
         }
     }
+}
+
+[role="tab"]:focus {
+    color: white;
 }
 
 
