@@ -53,7 +53,8 @@
                     <h1 class="numbered-title"><span aria-hidden="true">02</span>Meet your crew</h1>
                 </div>
 
-                <div class="content flow">
+                <!-- Douglas Hurley -->
+                <div class="content flow" id="douglas-tab" role="tabcontent" tabindex="0">
                     <div class="flow small"> 
                         <h2 class="uppercase ff-serif fs-600">Commander</h2>
                         <p class="uppercase ff-serif fs-700">Douglas Hurley</p>
@@ -64,27 +65,80 @@
                     </p>
                 </div>
 
-                <div class="dot-indicators flex">
-                    <button aria-selected="true">
+                <!-- Mark Shuttleworth -->
+                <div hidden class="content flow" id="mark-tab" role="tabcontent" tabindex="0">
+                    <div class="flow small"> 
+                        <h2 class="uppercase ff-serif fs-600">Mission Specialist</h2>
+                        <p class="uppercase ff-serif fs-700">Mark Shuttleworth</p>
+                    </div>
+                
+                    <p class="text-accent">
+                        Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist.
+                    </p>
+                </div>
+
+                <!-- Victor Glover -->
+                <div hidden class="content flow" id="victor-tab" role="tabcontent" tabindex="0">
+                    <div class="flow small"> 
+                        <h2 class="uppercase ff-serif fs-600">Pilot</h2>
+                        <p class="uppercase ff-serif fs-700">Victor Glover</p>
+                    </div>
+                
+                    <p class="text-accent">
+                        Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer.                     
+                    </p>
+                </div>
+
+                <!-- Anousheh Ansari -->
+                <div hidden class="content flow" id="anousheh-tab" role="tabcontent" tabindex="0">
+                    <div class="flow small"> 
+                        <h2 class="uppercase ff-serif fs-600">Flight Engineer</h2>
+                        <p class="uppercase ff-serif fs-700">Anousheh Ansari</p>
+                    </div>
+                
+                    <p class="text-accent">
+                        Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space.                     
+                    <p>
+                </div>
+
+                <div class="dot-indicators flex" role="tablist">
+                    <button aria-selected="true" role="tab" aria-controls="douglas-tab" data-image="douglas-img" tabindex="0">
                         <span class="sr-only">The commander</span>
                     </button>
-                    <button aria-selected="false">
+                    <button aria-selected="false" role="tab" aria-controls="mark-tab" data-image="mark-img" tabindex="-1">
                         <span class="sr-only">The mission specialist</span>
                     </button>
-                    <button aria-selected="false">
+                    <button aria-selected="false" role="tab" aria-controls="victor-tab" data-image="victor-img" tabindex="-1">
                         <span class="sr-only">The pilot</span>
                     </button>
-                    <button aria-selected="false">
+                    <button aria-selected="false" role="tab" aria-controls="anousheh-tab" data-image="anousheh-img" tabindex="-1">
                         <span class="sr-only">The engineer</span>
                     </button>
                 </div>
 
-                <div class="image">
+                <div class="image" id="douglas-img" role="tabimage">
                     <picture class="crew-img" alt="Douglas Hurley">
                         <source srcset="./assets/crew/image-douglas-hurley.webp" type="image/webp">
                         <img src="./assets/crew/image-douglas-hurley.png">
                     </picture>
-
+                </div>
+                <div hidden class="image" id="mark-img" role="tabimage">
+                    <picture class="crew-img" alt="Mark Shuttleworth">
+                        <source srcset="./assets/crew/image-mark-shuttleworth.webp" type="image/webp">
+                        <img src="./assets/crew/image-mark-shuttleworth.png">
+                    </picture>
+                </div>
+                <div hidden class="image" id="victor-img" role="tabimage">
+                    <picture class="crew-img" alt="Victor Glover">
+                        <source srcset="./assets/crew/image-victor-glover.webp" type="image/webp">
+                        <img src="./assets/crew/image-victor-glover.png">
+                    </picture>
+                </div>
+                <div hidden class="image" id="anousheh-img" role="tabimage">
+                    <picture class="crew-img" alt="Anousheh Ansari">
+                        <source srcset="./assets/crew/image-anousheh-ansari.webp" type="image/webp">
+                        <img src="./assets/crew/image-anousheh-ansari.png">
+                    </picture>
                 </div>
 
             </section>

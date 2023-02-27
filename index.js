@@ -18,7 +18,7 @@ toggleBtn.addEventListener('click', () => {
     }
 })
 
-// Tabs
+// Tabs 
 
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = document.querySelectorAll('[role="tab"]');
@@ -88,3 +88,4 @@ function showContent(parent, target) {
         .querySelector([`#${target}`])
         .removeAttribute('hidden');
 }
+

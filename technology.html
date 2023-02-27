@@ -52,20 +52,41 @@
                 <div class="title">
                     <h1 class="numbered-title"><span aria-hidden="true">03</span>Space launch 101</h1>
                 </div>
-                <div class="right">
+
+                <div class="right" role="tabimage" id="launch-img">
                     <picture class="tech-img" alt="Spaceship launching">
                         <source media="(min-width: 760px)" srcset="./assets/technology/image-launch-vehicle-portrait.jpg">
                         <img src="./assets/technology/image-launch-vehicle-landscape.jpg">
                     </picture>
                 </div>
+                <div hidden class="right" role="tabimage" id="spaceport-img">
+                    <picture class="tech-img" alt="Maintenance at the spaceport">
+                        <source media="(min-width: 760px)" srcset="./assets/technology/image-spaceport-portrait.jpg">
+                        <img src="./assets/technology/image-spaceport-landscape.jpg">
+                    </picture>
+                </div>
+                <div hidden class="right" role="tabimage" id="capsule-img">
+                    <picture class="tech-img" alt="Space capsule in the space">
+                        <source media="(min-width: 760px)" srcset="./assets/technology/image-space-capsule-portrait.jpg">
+                        <img src="./assets/technology/image-space-capsule-landscape.jpg">
+                    </picture>
+                </div>
+        
 
-                <div class="left number-indicators flex">
-                    <button aria-selected="true" class="">1</button>
-                    <button aria-selected="false" class="">2</button>
-                    <button aria-selected="false" class="">3</button>
+                <div class="left number-indicators flex" role="tablist">
+                    <button aria-selected="true" class="" role="tab" aria-controls="launch-tab" data-image="launch-img" tabindex="0">
+                        1
+                    </button>
+                    <button aria-selected="false" class="" role="tab" aria-controls="spaceport-tab" data-image="spaceport-img" tabindex="-1">
+                        2
+                    </button>
+                    <button aria-selected="false" class="" role="tab" aria-controls="capsule-tab" data-image="capsule-img" tabindex="-1">
+                        3
+                    </button>
                 </div>
 
-                <div class="center flow">
+                <!-- Launch Vehicle -->
+                <div class="center flow" role="tabcontent" id="launch-tab" tabindex="0">
                     <div class="flow small">
                         <h2 class="uppercase text-accent ff-sans-cond fs-600 letter-spacing-3">The terminology...</h2>
                         <p class="uppercase ff-serif fs-700">Launch vehicle</p>
@@ -73,6 +94,30 @@
                 
                     <p class="text-accent">
                         A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch
+                    </p>
+                </div>
+
+                <!-- Spaceport -->
+                <div hidden class="center flow" role="tabcontent" id="spaceport-tab" tabindex="0">
+                    <div class="flow small">
+                        <h2 class="uppercase text-accent ff-sans-cond fs-600 letter-spacing-3">The terminology...</h2>
+                        <p class="uppercase ff-serif fs-700">Spaceport</p>
+                    </div>
+                
+                    <p class="text-accent">
+                        A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.
+                    </p>
+                </div>
+
+                <!-- Space Capsule -->
+                <div hidden class="center flow" role="tabcontent" id="capsule-tab" tabindex="0">
+                    <div class="flow small">
+                        <h2 class="uppercase text-accent ff-sans-cond fs-600 letter-spacing-3">The terminology...</h2>
+                        <p class="uppercase ff-serif fs-700">Space Capsule</p>
+                    </div>
+                
+                    <p class="text-accent">
+                        A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.                   
                     </p>
                 </div>
 
