@@ -302,7 +302,7 @@ nav {
 }
 
 .primary-nav {
-    --gap: 4rem;
+    --gap: clamp(1.5rem, 5vw, 4rem);
     --underline-gap: 2rem;
     margin: 0;
     background: hsl(0 0% 100% / .1);
@@ -606,7 +606,7 @@ body {
 
             .left {
                 grid-area: image;
-                align-self: center;
+                align-self: start;
             }
 
             .tab-list {
@@ -666,6 +666,7 @@ body {
     }
 
     @media (min-width: 760px) {
+        grid-template-columns: minmax(4rem, 1fr) minmax(0, 47em) minmax(0, 33em) minmax(4rem, 1fr);
         grid-template-areas:
             '. title title .'
             '. content image .'
@@ -696,7 +697,7 @@ body {
     }
 
     @media (min-width: 760px) {
-        width: 80%;
+        width: 85%;
     }
  }
 

@@ -318,7 +318,7 @@ nav {
 }
 
 .primary-nav {
-  --gap: 4rem;
+  --gap: clamp(1.5rem, 5vw, 4rem);
   --underline-gap: 2rem;
   margin: 0;
   background: hsla(0, 0%, 100%, 0.1);
@@ -599,7 +599,7 @@ body {
   }
   .destination .grid-container .left {
     grid-area: image;
-    align-self: center;
+    align-self: start;
   }
   .destination .grid-container .tab-list {
     grid-area: tabs;
@@ -640,6 +640,7 @@ body {
 }
 @media (min-width: 760px) {
   .crew .grid-container {
+    grid-template-columns: minmax(4rem, 1fr) minmax(0, 47em) minmax(0, 33em) minmax(4rem, 1fr);
     grid-template-areas: ". title title ." ". content image ." ". dots image .";
     justify-items: start;
   }
@@ -666,7 +667,7 @@ body {
 }
 @media (min-width: 760px) {
   .crew-img img {
-    width: 80%;
+    width: 85%;
   }
 }
 
