@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap");
 :root {
-  --fs-900: clamp(5rem, 10vw + 1rem, 9.375rem);
+  --fs-900: 5rem;
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
   --fs-600: 1rem;
@@ -11,6 +11,7 @@
 }
 @media (min-width: 560px) {
   :root {
+    --fs-900: 9.375rem;
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-500: 1.25rem;
@@ -545,7 +546,12 @@ body {
 }
 
 .home .grid-container .right {
-  align-self: start;
+  align-self: center;
+}
+@media (min-width: 560px) {
+  .home .grid-container .right {
+    align-self: center;
+  }
 }
 @media (min-width: 760px) {
   .home .grid-container .right {
@@ -593,8 +599,11 @@ body {
     justify-self: left;
     margin-top: 2rem;
   }
+  .destination .grid-container .underline-indicators > * {
+    padding: 1rem 0;
+  }
 }
-@media (min-width: 760px) {
+@media (min-width: 560px) and (min-width: 760px) {
   .destination .grid-container {
     grid-template-areas: ". title title ." ". image tabs ." ". image content .";
     align-content: start;

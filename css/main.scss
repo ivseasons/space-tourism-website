@@ -23,7 +23,7 @@ $font-family: (
 
     // font sizes
 
-    --fs-900: clamp(5rem, 10vw + 1rem, 9.375rem);
+    --fs-900: 5rem;
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
     --fs-600: 1rem;
@@ -35,6 +35,7 @@ $font-family: (
 
     @media (min-width: 560px) {
 
+        --fs-900: 9.375rem;
         --fs-800: 5rem;
         --fs-700: 2.5rem;
         --fs-500: 1.25rem;
@@ -543,11 +544,15 @@ body {
 
 .home .grid-container .right {
 
-    align-self: start;
+    align-self: center;
 
+    @media (min-width: 560px) {
+        align-self: center;
+    }  
+    
     @media (min-width: 760px) {
         align-self: end;
-    }   
+    }
 
 }
 
@@ -593,41 +598,44 @@ body {
             justify-self: left;
             margin-top: 2rem;
         }
-    }
 
-    @media (min-width: 760px) {
         .grid-container {
-            grid-template-areas: 
-                '. title title .'
-                '. image tabs .'
-                '. image content .';
-            align-content: start;
-
-            .title {
-                grid-area: title;
-                
+            .underline-indicators > * {
+                padding: 1rem 0;
             }
 
-            .left {
-                grid-area: image;
-                align-self: start;
-            }
+            @media (min-width: 760px) {
+                grid-template-areas: 
+                    '. title title .'
+                    '. image tabs .'
+                    '. image content .';
+                align-content: start;
 
-            .tab-list {
-                grid-area: tabs;
-                justify-self: left;
-                margin-inline: 0;
-            }
+                .title {
+                    grid-area: title;
+                    
+                }
 
-            .right {
-                grid-area: content;
-                justify-self: start;
+                .left {
+                    grid-area: image;
+                    align-self: start;
+                }
 
+                .tab-list {
+                    grid-area: tabs;
+                    justify-self: left;
+                    margin-inline: 0;
+                }
+
+                .right {
+                    grid-area: content;
+                    justify-self: start;
+
+                }
             }
         }
-       
     }
- }
+}
 
  // Crew Page
 
@@ -721,7 +729,6 @@ body {
  }
 
 .technology .grid-container {
-
     padding-inline: 0;
 
     .center {
