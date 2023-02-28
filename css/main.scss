@@ -543,7 +543,11 @@ body {
 
 .home .grid-container .right {
 
-    align-self: end;
+    align-self: start;
+
+    @media (min-width: 760px) {
+        align-self: end;
+    }   
 
 }
 

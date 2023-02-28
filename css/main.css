@@ -545,7 +545,12 @@ body {
 }
 
 .home .grid-container .right {
-  align-self: end;
+  align-self: start;
+}
+@media (min-width: 760px) {
+  .home .grid-container .right {
+    align-self: end;
+  }
 }
 
 .planet-img img {
